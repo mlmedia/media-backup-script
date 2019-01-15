@@ -66,14 +66,15 @@ Set environment var for S3 bucket.  This presumes you have already set up a buck
 
 If you do not already have an S3 bucket set up, see the **_Requirements_** section of this README.  
 
-Create an S3MEDIABUCKET environment variable to the `/etc/environment` file so that it is accessible by cron.
+Create the S3MEDIABUCKET and MEDIADIR environment variables to the `/etc/environment` file so that it is accessible by cron.
 
 ```
 sudo nano /etc/environment
 ```
-Add the following line to the end of the file, using your S3 bucket name.
+Add the following line to the end of the file, using your S3 bucket name and target media directory.
 ```
 S3MEDIABUCKET=your-bucket-name
+MEDIADIR=/path/to/target/media/dir
 ```
 
 Log out.
