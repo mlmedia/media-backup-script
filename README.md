@@ -1,6 +1,8 @@
 # Media Backup Script
 BASH script that automatically syncs media folders to an S3 bucket.
 
+NOTE: currently this script only supports syncing a single media directory on a server.
+
 ## Requirements
 For this script to work as intended, you will need the following set up:
 - **Server with Linux** installed as the operating system.  The following instructions work for a server running *Ubuntu 18.04 (Bionic Beaver)*.  Installation will likely be different on other operating systems and future versions.
