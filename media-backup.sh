@@ -8,9 +8,12 @@ SITENAME=`echo ${HOSTNAME} | tr [:upper:] [:lower:] | tr -c '[:alnum:]' '-' | tr
 # sync with Amazon S3 using the CLI (with server side encryption)
 # install AWS CLI with instructions found here: https://linuxconfig.org/install-aws-cli-on-ubuntu-18-04-bionic-beaver-linux
 # check for existence of environment variable
-if [ -z "$MEDIADIR" || -z "$S3MEDIABUCKET" ]
+if [ -z "$MEDIADIR" ]
 then
-	echo "You need to set ENVIRONMENT variables for the target MEDIADIR (e.g. MEDIADIR=/var/www/yoursite/uploads) and for the target S3MEDIABUCKET variable (e.g. S3MEDIABUCKET=my-bucket-name)";
+	echo "You need to set the MEDIADIR environment variable for the target media directory (e.g. MEDIADIR=/var/www/yoursite/uploads)";
+elif [ -z "$S3MEDIABUCKET" ]
+then
+	echo "You need to set the S3MEDIABUCKET environment variable for the S3 bucket name (e.g. S3MEDIABUCKET=my-bucket-name)";
 else
 	aws s3 sync $MEDIADIR s3://$S3MEDIABUCKET/$SITENAME --sse;
 fi
