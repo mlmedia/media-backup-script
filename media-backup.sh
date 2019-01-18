@@ -15,5 +15,6 @@ elif [ -z "$S3MEDIABUCKET" ]
 then
 	echo "You need to set the S3MEDIABUCKET environment variable for the S3 bucket name (e.g. S3MEDIABUCKET=my-bucket-name)";
 else
+	echo "Synching media to AWS";
 	aws s3 sync $MEDIADIR s3://$S3MEDIABUCKET/$SITENAME --sse;
 fi
